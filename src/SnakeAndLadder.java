@@ -8,19 +8,31 @@ public class Main {
 	    int pos = 0;
 	    int dice ;
 	    int temp;
+	    int countDice = 0;
+	    int countPos = 0;
         System.out.println("Welcome to Snake And Ladder program");
         System.out.println("Single player at start position "+ pos);
         while (pos <= 100){
             dice = rollDice();
+            countDice++;
+            int t = pos;
             pos = mapTo(dice, pos);
+            if(pos > t)
+                countPos++;
         }
         if(pos > 100){
             temp = pos - 100;
             pos = pos - temp;
             System.out.println("Win the game pos is : "+ pos);
+            System.out.println("No of Count Dice : "+ countDice);
+            System.out.println("No of Count Pos : "+ countPos);
+
         }
-        else
+        else{
             System.out.println("Win the game pos is : "+ pos);
+            System.out.println("No of Count Dice : "+ countDice);
+            System.out.println("No of Count Pos : "+ countPos);
+        }
     }
     public static int rollDice(){
         Random random = new Random();
