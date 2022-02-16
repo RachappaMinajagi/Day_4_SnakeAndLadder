@@ -7,13 +7,20 @@ public class Main {
     public static void main(String[] args) {
 	    int pos = 0;
 	    int dice ;
+	    int temp;
         System.out.println("Welcome to Snake And Ladder program");
         System.out.println("Single player at start position "+ pos);
         while (pos <= 100){
             dice = rollDice();
             pos = mapTo(dice, pos);
         }
-        System.out.println("Win the game pos is : "+ pos);
+        if(pos > 100){
+            temp = pos - 100;
+            pos = pos - temp;
+            System.out.println("Win the game pos is : "+ pos);
+        }
+        else
+            System.out.println("Win the game pos is : "+ pos);
     }
     public static int rollDice(){
         Random random = new Random();
